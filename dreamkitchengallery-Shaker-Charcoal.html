@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitchensgallery — Shaker Charcoal Collection</title>
+<title>Dreamkitchengallery — Shaker Charcoal Collection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
     border-bottom: 1px solid rgba(176,141,87,0.12);
     transition: background 0.3s ease;
   }
-  .nav-logo{ display: flex; flex-direction: column; line-height: 1; cursor: pointer; }
+  .nav-logo{ display: flex; flex-direction: column; line-height: 1; cursor: pointer; text-decoration: none; }
   .nav-logo .l1{ font-family: 'Cormorant Garamond', serif; font-size: 19px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink); }
   .nav-logo .l2{ font-size: 8.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-deep); margin-top: 4px; }
   .nav-links{ display: none; align-items: center; gap: 38px; }
@@ -334,17 +334,17 @@
 
 <!-- ================= SPLASH ================= -->
 <div id="splash">
-  <div class="mark">Kitchensgallery</div>
+  <div class="mark">Dreamkitchengallery</div>
   <div class="bar"><div class="fill" id="splashFill"></div></div>
   <div class="pct" id="splashPct">0%</div>
 </div>
 
 <!-- ================= NAVBAR ================= -->
 <nav class="topnav">
-  <div class="nav-logo">
-    <span class="l1">Kitchensgallery</span>
+  <a class="nav-logo" href="https://dreamkitchengallery.com/" aria-label="Dreamkitchengallery home">
+    <span class="l1">Dreamkitchengallery</span>
     <span class="l2">Fine Cabinetry &amp; Joinery</span>
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#spotlight">Collection</a>
     <a href="#process">Craftsmanship</a>
@@ -374,7 +374,7 @@
     <p>A moody, matte-black shaker profile — hand-fitted, spray-finished, and on display in our showroom.</p>
     <div class="actions">
       <a href="#gallery-section" class="btn-gold">View the Gallery</a>
-      <a href="#contact" class="btn-outline">Book a Consultation</a>
+      <a href="https://www.canadakitchens.ca/contact/" class="btn-outline">Book a Consultation</a>
     </div>
   </div>
   <div class="scroll-cue"><div class="line"></div><span>Scroll</span></div>
@@ -443,13 +443,13 @@
   <div class="content">
     <div class="eyebrow-line">Start Your Project</div>
     <h2>Ready to bring Shaker Charcoal home?</h2>
-    <a href="https://kitchensgallery.com" target="_blank" class="btn-gold">Book a Consultation</a>
+    <a href="https://www.canadakitchens.ca/contact/" target="_blank" class="btn-gold">Book a Consultation</a>
   </div>
 </section>
 
 <footer>
-  <div class="brand">Kitchensgallery</div>
-  <a class="site" href="https://kitchensgallery.com">kitchensgallery.com</a>
+  <div class="brand">Dreamkitchengallery</div>
+  <a class="site" href="https://dreamkitchengallery.com">dreamkitchengallery.com</a>
   <div class="fine">Showroom by appointment · Custom cabinetry &amp; joinery</div>
 </footer>
 
@@ -482,19 +482,16 @@
   ];
 
   const items = [
-    { name: "Maria Buzdon LG (CQ-8022 York)", slug: "maria-buzdon-lg-cq-8022-york", count: 6 },
-    { name: "Marijana & Matt Bradford LG (CQ-1806 Moonriver)", slug: "marijana-matt-bradford-lg-cq-1806-moonriver", count: 4 },
-    { name: "Michael O'Reilly LG (CQ-8025 Blizzard)", slug: "michael-o-reilly-lg-cq-8025-blizzard", count: 8 },
-    { name: "Michelle Cowan LG (CQ-1457 French Grey)", slug: "michelle-cowan-lg-cq-1457-french-grey", count: 4 },
-    { name: "Ravinder Pabla LG (CQ-8022 York)", slug: "ravinder-pabla-lg-cq-8022-york", count: 5 },
-    { name: "Rita Nabhan LG (CQ-8030 Avalanche)", slug: "rita-nabhan-lg-cq-8030-avalanche", count: 22 },
-    { name: "Roxana Constandes LG (CQ-8023 Salt Mine)", slug: "roxana-constandes-lg-cq-8023-salt-mine", count: 4 },
-    { name: "Tammy Toye LG (out-sourced) Kitchen, Laundry, Pantry", slug: "tammy-toye-lg-out-sourced-kitchen-laundry-pantry", count: 11 }
+    { name: "Album", images: ["IMG_7195.jpg", "IMG_7203.jpg", "IMG_7208-2.jpg", "IMG_7208.jpg"] },
+    { name: "Album (2)", images: ["IMG_2909.jpg", "IMG_2915.jpg", "IMG_2916.jpg", "IMG_2918.jpg", "IMG_2919-2.jpg"] },
+    { name: "Album (3)", images: ["IMG_8990.jpg", "IMG_8993.jpg", "IMG_8994.jpg", "IMG_8995.jpg", "IMG_8998.jpg", "IMG_9001.jpg", "IMG_9003.jpg", "IMG_9014.jpg"] },
+    { name: "Album (4)", images: ["Copy of IMG_7116.jpg", "Copy of IMG_7127.jpg", "Copy of IMG_7131.jpg", "Copy of IMG_7133.jpg", "Copy of IMG_7148.jpg", "Copy of IMG_7166.jpg"] },
+    { name: "Album (5)", images: ["IMG_0358_1.jpg", "IMG_0359.jpg", "IMG_0360.jpg", "IMG_0366.jpg", "IMG_0369.jpg", "IMG_0372.jpg", "IMG_0373.jpg", "IMG_0377.jpg"] }
   ].map((p) => ({
     name: p.name,
     desc: "Customer Showcase",
     ratio: "4/5",
-    images: Array.from({ length: p.count }, (_, i) => `anh/customers/${p.slug}/${String(i + 1).padStart(2,'0')}.jpg`)
+    images: p.images.map((file) => encodeURI(`anh/customers/shaker-charcoal-album/${p.name}/${file}`))
   }));
 
   const products = items;
