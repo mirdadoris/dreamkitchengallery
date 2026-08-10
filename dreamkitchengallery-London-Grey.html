@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchensgallery | Demo Hanh Tai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBF6F1;
+    --ink: #201C17;
+    --ink-soft: #6E665A;
+    --line: #E9D9CC;
+    --accent: #B5502F;
+    --accent-deep: #7C331C;
+    --accent-soft: #F1DDCF;
+    --card: #FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Jost', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header{ padding: 64px 24px 40px; text-align: center; }
+  header .eyebrow{
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent-deep); margin-bottom: 22px;
+  }
+  header .eyebrow::before, header .eyebrow::after{
+    content: ''; width: 26px; height: 1px; background: var(--accent);
+  }
+  header .brand{
+    font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 6px;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom: 18px;
+  }
+  header h1{
+    font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px;
+    letter-spacing: 1px; line-height: 1.25; max-width: 520px; margin: 0 auto 16px;
+  }
+  header p{
+    font-size: 13.5px; color: var(--ink-soft); max-width: 400px; margin: 0 auto;
+    line-height: 1.8; letter-spacing: 0.3px;
+  }
+
+  main{ max-width: 1120px; margin: 0 auto; padding: 20px 20px 80px; }
+
+  .gallery{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+  @media (min-width: 640px){ .gallery{ grid-template-columns: repeat(3, 1fr); gap: 32px 24px; } }
+  @media (min-width: 980px){ .gallery{ grid-template-columns: repeat(4, 1fr); gap: 36px 28px; } }
+
+  .featured-wrap{ position: relative; padding: 40px 20px 34px; margin-bottom: 8px; }
+  .featured-wrap .hero-bg{
+    position: absolute; top: 0; bottom: 0; left: 50%; right: 50%;
+    margin-left: -50vw; margin-right: -50vw; width: 100vw; z-index: 0;
+    background: url('anh/hero-bg.jpg') center 30% / cover no-repeat;
+    filter: blur(3px) saturate(1.1);
+    opacity: 0.98;
+  }
+  .featured-wrap .hero-bg::after{
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(251,246,241,0.02) 0%, rgba(251,246,241,0.15) 100%);
+  }
+  .featured-wrap .featured-grid{ position: relative; z-index: 1; margin-bottom: 0; }
+
+  .featured-grid{
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 640px){ .featured-grid{ grid-template-columns: repeat(4, 1fr); gap: 28px; } }
+  .featured-grid.single{
+    display: flex; justify-content: center;
+  }
+  .featured-grid.single .cabinet{
+    width: 100%; max-width: 360px;
+  }
+
+  .section-divider{
+    display: flex; align-items: center; gap: 16px;
+    margin: 56px 0 40px;
+  }
+  .section-divider::before, .section-divider::after{
+    content: ''; flex: 1; height: 1px; background: var(--line);
+  }
+  .section-divider span{
+    font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-deep);
+    white-space: nowrap;
+  }
+
+  .item{ cursor: pointer; }
+  .item .frame{
+    position: relative; border: 1px solid var(--accent); padding: 7px;
+    transition: border-color 0.25s ease;
+  }
+  .item:hover .frame{ border-color: var(--accent-deep); }
+  .item .frame .inner{ overflow: hidden; position: relative; }
+  .item img{
+    width: 100%; display: block; aspect-ratio: var(--ar, 4/5); object-fit: cover;
+    background: var(--accent-soft); transition: transform 0.5s ease;
+  }
+  .item:hover img{ transform: scale(1.035); }
+  .item .count{
+    position: absolute; bottom: 8px; right: 8px;
+    background: rgba(32,28,23,0.65); color: #fff;
+    font-size: 10.5px; letter-spacing: 0.5px;
+    padding: 4px 9px; display: flex; align-items: center; gap: 5px;
+  }
+  .item .index{
+    position: absolute; top: -9px; left: 14px; background: var(--bg); padding: 0 8px;
+    font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 2px;
+    color: var(--accent-deep);
+  }
+  .item .cap{ padding: 16px 6px 0; text-align: center; }
+  .item .cap .name{
+    font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500;
+    letter-spacing: 0.5px; color: var(--ink); margin-bottom: 5px;
+  }
+  .item .cap .desc{
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-deep);
+  }
+
+  /* Cabinet cards — single-image luxury showcase (featured row) */
+  .cabinet{ cursor: pointer; text-align: center; }
+  .cabinet .frame{
+    position: relative; border: 1px solid var(--line);
+    background: radial-gradient(ellipse at 50% 32%, #ffffff 0%, var(--accent-soft) 82%);
+    padding: 30px 20px 20px; overflow: hidden;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .cabinet:hover .frame{
+    border-color: var(--accent);
+    box-shadow: 0 22px 44px -18px rgba(124,51,28,0.38);
+  }
+  .cabinet .index{
+    position: absolute; top: 14px; left: 16px;
+    font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 2px;
+    color: var(--accent-deep); opacity: 0.75;
+  }
+  .cabinet img{
+    width: 100%; aspect-ratio: var(--ar, 4/5); object-fit: contain;
+    filter: drop-shadow(0 18px 20px rgba(32,28,23,0.22));
+    transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+  }
+  .cabinet:hover img{ transform: translateY(-5px) scale(1.025); }
+  .cabinet .cap{ padding: 20px 8px 6px; }
+  .cabinet .cap .swatch-row{
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;
+  }
+  .cabinet .cap .swatch{
+    width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15);
+    display: inline-block;
+  }
+  .cabinet .cap .swatch-row::before, .cabinet .cap .swatch-row::after{
+    content: ''; width: 16px; height: 1px; background: var(--line);
+  }
+  .cabinet .cap .name{
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 500;
+    letter-spacing: 0.3px; color: var(--ink); margin-bottom: 6px;
+  }
+  .cabinet .cap .desc{
+    font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-deep);
+  }
+
+  .cta{ display: flex; justify-content: center; padding: 30px 0 0; }
+  .cta a{
+    display: inline-block; padding: 16px 44px; border: 1px solid var(--accent); color: var(--ink);
+    font-size: 11.5px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+    text-decoration: none; transition: background 0.25s ease, color 0.25s ease;
+  }
+  .cta a:hover{ background: var(--accent); color: var(--card); }
+
+  footer{ text-align: center; padding: 40px 20px 56px; }
+  footer .brand{
+    font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 5px;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px;
+  }
+  footer a{ font-size: 11px; color: var(--accent-deep); text-decoration: none; letter-spacing: 0.5px; }
+
+  /* Album modal (product-level) */
+  .album-overlay{
+    position: fixed; inset: 0; background: rgba(16,13,10,0.94);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 40px 20px; overflow-y: auto; z-index: 998;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.45s cubic-bezier(.16,1,.3,1), visibility 0.45s;
+  }
+  .album-overlay.open{ opacity: 1; visibility: visible; pointer-events: auto; }
+  .album-panel{
+    background: var(--bg); max-width: 760px; width: 100%; padding: 40px 28px 48px;
+    position: relative;
+    transform: translateY(22px) scale(0.97);
+    opacity: 0;
+    transition: transform 0.55s cubic-bezier(.16,1,.3,1), opacity 0.5s ease;
+  }
+  .album-overlay.open .album-panel{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition-delay: 0.06s;
+  }
+  .album-panel .close{
+    position: absolute; top: 18px; right: 18px; width: 38px; height: 38px;
+    border: 1px solid var(--accent); background: transparent; color: var(--ink);
+    font-size: 18px; cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .album-panel .close:hover{ transform: rotate(90deg); background: var(--accent-soft); }
+  .album-panel .a-eyebrow{
+    font-size: 10.5px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent-deep); text-align: center; margin-bottom: 8px;
+  }
+  .album-panel .a-title{
+    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500;
+    text-align: center; margin-bottom: 30px;
+  }
+  .album-grid{
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+  @media (min-width: 560px){ .album-grid{ grid-template-columns: repeat(3, 1fr); } }
+  .album-grid .a-item{
+    border: 1px solid var(--accent); padding: 5px; cursor: zoom-in;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.16,1,.3,1), border-color 0.2s ease;
+  }
+  .album-grid .a-item.show{ opacity: 1; transform: translateY(0); }
+  .album-grid .a-item:hover{ border-color: var(--accent-deep); }
+  .album-grid img{
+    width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block;
+    background: var(--accent-soft);
+    transition: transform 0.4s ease;
+  }
+  .album-grid .a-item:hover img{ transform: scale(1.04); }
+
+  /* Full image lightbox (photo-level, opened from inside album) */
+  .lightbox{
+    position: fixed; inset: 0; background: rgba(10,8,6,0.97);
+    display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 999;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s;
+  }
+  .lightbox.open{ opacity: 1; visibility: visible; pointer-events: auto; }
+  .lightbox img{
+    max-width: 100%; max-height: 90vh;
+    transform: scale(0.96);
+    transition: transform 0.45s cubic-bezier(.16,1,.3,1);
+  }
+  .lightbox.open img{ transform: scale(1); }
+  .lightbox .close{
+    position: absolute; top: 24px; right: 24px; width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.4); background: transparent; color: #fff;
+    font-size: 20px; cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+  .lightbox .close:hover{ transform: rotate(90deg); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hero-bg"></div>
+  <div class="eyebrow">Collection</div>
+  <div class="brand">Kitchensgallery</div>
+  <h1>Demo Hanh Tai</h1>
+  <p>A curated edit of kitchen appliances — on display in our showroom.</p>
+</header>
+
+<main>
+  <div class="featured-wrap">
+    <div class="hero-bg"></div>
+    <div class="featured-grid" id="featured"></div>
+  </div>
+
+  <div class="section-divider"><span>All ALBUM</span></div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <div class="cta"><a href="https://kitchensgallery.com" target="_blank">View more</a></div>
+</main>
+
+<footer>
+  <div class="brand">Kitchensgallery</div>
+  <a href="https://kitchensgallery.com">kitchensgallery.com</a>
+</footer>
+
+<div class="album-overlay" id="albumOverlay">
+  <div class="album-panel">
+    <button class="close" id="albumClose">&times;</button>
+    <div class="a-eyebrow" id="albumEyebrow">Product</div>
+    <div class="a-title" id="albumTitle"></div>
+    <div class="album-grid" id="albumGrid"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  /*
+    DATA
+    "cabinets" = 4 ô trưng bày ở trên — MỖI Ô CHỈ 1 ẢNH DUY NHẤT (bấm vào phóng to trực tiếp).
+      swatch: mã màu hex đại diện tông vân gỗ, hiện thành chấm tròn nhỏ cạnh tên.
+    "items" = album ảnh thực tế bên dưới (Product Name 1..8), mỗi sản phẩm có thể chứa nhiều ảnh
+      (bấm vào mở thành 1 album riêng).
+  */
+  const cabinets = [
+    { name: "London Grey", desc: "Kitchen Cabinet", swatch: "#6B6B6D", ratio: "4/5", image: "anh/London-Grey.jpg" }
+  ];
+
+  const items = [
+    { name: "Maria Buzdon LG (CQ-8022 York)", slug: "maria-buzdon-lg-cq-8022-york", count: 6 },
+    { name: "Marijana & Matt Bradford LG (CQ-1806 Moonriver)", slug: "marijana-matt-bradford-lg-cq-1806-moonriver", count: 4 },
+    { name: "Michael O'Reilly LG (CQ-8025 Blizzard)", slug: "michael-o-reilly-lg-cq-8025-blizzard", count: 8 },
+    { name: "Michelle Cowan LG (CQ-1457 French Grey)", slug: "michelle-cowan-lg-cq-1457-french-grey", count: 4 },
+    { name: "Ravinder Pabla LG (CQ-8022 York)", slug: "ravinder-pabla-lg-cq-8022-york", count: 5 },
+    { name: "Rita Nabhan LG (CQ-8030 Avalanche)", slug: "rita-nabhan-lg-cq-8030-avalanche", count: 22 },
+    { name: "Roxana Constandes LG (CQ-8023 Salt Mine)", slug: "roxana-constandes-lg-cq-8023-salt-mine", count: 4 },
+    { name: "Tammy Toye LG (out-sourced) Kitchen, Laundry, Pantry", slug: "tammy-toye-lg-out-sourced-kitchen-laundry-pantry", count: 11 }
+  ].map((p) => ({
+    name: p.name,
+    desc: "Customer Showcase",
+    ratio: "4/5",
+    images: Array.from({ length: p.count }, (_, i) => `anh/customers/${p.slug}/${String(i + 1).padStart(2,'0')}.jpg`)
+  }));
+
+  const products = items; // album modal only serves the "items" (real project photos)
+
+  const featuredEl = document.getElementById('featured');
+  const gallery = document.getElementById('gallery');
+  const albumOverlay = document.getElementById('albumOverlay');
+  const albumTitle = document.getElementById('albumTitle');
+  const albumGrid = document.getElementById('albumGrid');
+  const albumClose = document.getElementById('albumClose');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+
+  // Render the 4 luxury single-image cabinet cards — click opens the lightbox directly
+  function renderCabinet(c, i){
+    const el = document.createElement('div');
+    el.className = 'cabinet';
+    el.style.setProperty('--ar', c.ratio);
+    el.innerHTML = `
+      <div class="frame">
+        <img src="${c.image}" alt="${c.name}">
+      </div>
+      <div class="cap">
+        <div class="swatch-row"><span class="swatch" style="background:${c.swatch}"></span></div>
+        <div class="name">${c.name}</div>
+        <div class="desc">${c.desc}</div>
+      </div>
+    `;
+    el.addEventListener('click', () => {
+      lightboxImg.src = c.image;
+      lightboxImg.alt = c.name;
+      lightbox.classList.add('open');
+    });
+    featuredEl.appendChild(el);
+  }
+
+  // Render the 8 product cards — click opens a full photo album (real project images)
+  function renderItem(p, i, container){
+    const item = document.createElement('div');
+    item.className = 'item';
+    item.style.setProperty('--ar', p.ratio);
+    item.innerHTML = `
+      <div class="frame">
+        <span class="index">${pad(i + 1)}</span>
+        <div class="inner">
+          <img src="${p.images[0]}" alt="${p.name}">
+          <span class="count">${p.images.length} photo${p.images.length > 1 ? 's' : ''}</span>
+        </div>
+      </div>
+      <div class="cap"><div class="name">${p.name}</div><div class="desc">${p.desc}</div></div>
+    `;
+    item.addEventListener('click', () => openAlbum(i));
+    container.appendChild(item);
+  }
+
+  cabinets.forEach((c, i) => renderCabinet(c, i));
+  if (cabinets.length === 1) featuredEl.classList.add('single');
+  items.forEach((p, i) => renderItem(p, i, gallery));
+
+  function openAlbum(i){
+    const p = products[i];
+    albumTitle.textContent = p.name;
+    albumGrid.innerHTML = '';
+    p.images.forEach((src, idx) => {
+      const cell = document.createElement('div');
+      cell.className = 'a-item';
+      cell.style.transitionDelay = (idx * 0.06) + 's';
+      cell.innerHTML = `<img src="${src}" alt="${p.name}">`;
+      cell.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = src;
+        lightbox.classList.add('open');
+      });
+      albumGrid.appendChild(cell);
+    });
+    albumOverlay.classList.add('open');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        albumGrid.querySelectorAll('.a-item').forEach(el => el.classList.add('show'));
+      });
+    });
+  }
+
+  albumClose.addEventListener('click', closeAlbum);
+  albumOverlay.addEventListener('click', (e) => {
+    if (e.target === albumOverlay) closeAlbum();
+  });
+  function closeAlbum(){
+    albumOverlay.classList.remove('open');
+    albumGrid.querySelectorAll('.a-item').forEach(el => el.classList.remove('show'));
+  }
+
+  lightboxClose.addEventListener('click', () => { lightbox.classList.remove('open'); lightboxImg.src=''; });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+  });
+</script>
+
+</body>
+</html>
