@@ -80,6 +80,7 @@ Output:
     text-transform: uppercase; text-decoration: none; color: var(--ink);
     transition: background 0.25s ease, color 0.25s ease;
   }
+  .nav-links a.nav-cta{ padding: 11px 26px; display: inline-flex; align-items: center; position: relative; top: -2px; }
   .nav-cta:hover{ background: var(--gold); color: var(--bg); }
   @media (min-width: 860px){ .nav-links{ display: flex; } }
 
@@ -391,19 +392,19 @@ Output:
   </div>
   <div class="process-grid">
     <div class="step reveal">
-      <span class="num">01 â€” Design</span>
+      <span class="num">01 &mdash; Design</span>
       <div class="step-rule"></div>
       <h3>Measure &amp; Draw</h3>
       <p>We survey the room and draft every cabinet panel to the millimetre, so nothing is left to chance on install day.</p>
     </div>
     <div class="step reveal">
-      <span class="num">02 â€” Build</span>
+      <span class="num">02 &mdash; Build</span>
       <div class="step-rule"></div>
       <h3>Hand-Built Joinery</h3>
       <p>Solid frames are joined in our workshop, then hand-sprayed in London Grey for a smooth, durable finish.</p>
     </div>
     <div class="step reveal">
-      <span class="num">03 â€” Install</span>
+      <span class="num">03 &mdash; Install</span>
       <div class="step-rule"></div>
       <h3>Fit &amp; Finish</h3>
       <p>Our joiners install on site, dress every reveal line, and walk the kitchen with you before we call it done.</p>
@@ -436,7 +437,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Real kitchens, real customers â€” every album below is a completed London Grey project from our showroom archive.</p>
+    <p>Real kitchens, real customers &mdash; every album below is a completed London Grey project from our showroom archive.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -453,7 +454,7 @@ Output:
 <footer>
   <div class="brand">Dreamkitchengallery</div>
   <a class="site" href="https://dreamkitchengallery.com">dreamkitchengallery.com</a>
-  <div class="fine">Showroom by appointment Â· Custom cabinetry &amp; joinery</div>
+  <div class="fine">Showroom by appointment &middot; Custom cabinetry &amp; joinery</div>
 </footer>
 
 <!-- ================= ALBUM MODAL ================= -->
@@ -475,7 +476,7 @@ Output:
 <script>
   /* ---------------------------------------------------------------
      DATA
-     "cabinets" = the single flagship finish shown in the Spotlight â€”
+     "cabinets" = the single flagship finish shown in the Spotlight &mdash;
        one image only (clicking opens the lightbox directly).
      "items" = the real project albums shown further down (Product 1..8),
        each with multiple photos (clicking opens a dedicated album).
@@ -511,7 +512,7 @@ Output:
 
   function pad(n){ return String(n).padStart(2, '0'); }
 
-  // Spotlight: single-image flagship cabinet â€” click opens the lightbox directly
+  // Spotlight: single-image flagship cabinet &mdash; click opens the lightbox directly
   function renderCabinet(c){
     featuredEl.style.setProperty('--ar', c.ratio);
     featuredEl.innerHTML = `
@@ -525,7 +526,7 @@ Output:
     });
   }
 
-  // Gallery: 8 product cards â€” click opens a full photo album (real project images)
+  // Gallery: project album cards &mdash; click opens a full photo album
   function renderItem(p, i, container){
     const item = document.createElement('div');
     item.className = 'item reveal';
