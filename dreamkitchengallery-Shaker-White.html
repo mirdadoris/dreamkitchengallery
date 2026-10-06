@@ -436,7 +436,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Explore our Shaker White project albums. New installation photography will be added soon.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest Shaker White installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -484,18 +484,21 @@ Output:
     { name: "Shaker White", desc: "Kitchen Cabinet", swatch: "#F4F1EA", ratio: "4/5", image: "anh/Shaker-White.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/Shaker white SW/";
   const items = [
-    { name: "Album", images: [] },
-    { name: "Album (2)", images: [] },
-    { name: "Album (3)", images: [] },
-    { name: "Album (4)", images: [] },
-    { name: "Album (5)", images: [] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_0478.jpg", "album 1/Copy of IMG_0480.jpg", "album 1/Copy of IMG_3836.jpg", "album 1/Copy of IMG_3838.jpg", "album 1/Copy of IMG_3845.jpg", "album 1/Copy of IMG_3858.jpg", "album 1/Copy of IMG_3862 copy.jpg"] },
+    { name: "Album 2", images: ["album 2/Copy of Paula \u0026 Dennis Horlick SW-15.jpg", "album 2/Copy of Paula \u0026 Dennis Horlick SW-16.jpg", "album 2/Copy of Paula \u0026 Dennis Horlick SW-19.jpg", "album 2/Copy of Paula \u0026 Dennis Horlick SW-5.jpg", "album 2/Copy of Paula \u0026 Dennis Horlick SW-7.jpg", "album 2/Copy of Paula \u0026 Dennis Horlick SW-8.jpg"] },
+    { name: "Album 3", images: ["album 3/Copy of IMG_4909.jpg", "album 3/Copy of IMG_4924.jpg", "album 3/Copy of IMG_8163.jpg", "album 3/Copy of IMG_8169.jpg", "album 3/Copy of IMG_8173.jpg"] },
+    { name: "Album 4", images: ["album 4/Copy of IMG_4561.jpg", "album 4/Copy of IMG_4573.jpg", "album 4/Copy of IMG_5434.jpg", "album 4/Copy of IMG_5444.jpg", "album 4/Copy of IMG_5446.jpg", "album 4/Copy of IMG_5447.jpg"] },
+    { name: "Album 5", images: ["album 5/Copy of IMG_4897.jpg", "album 5/Copy of IMG_4898.jpg", "album 5/Copy of IMG_4924.jpg", "album 5/Copy of IMG_8163.jpg", "album 5/Copy of IMG_8169.jpg", "album 5/Copy of IMG_8173.jpg"] },
+    { name: "Album 6", images: ["album 6/Copy of IMG_4873.jpg", "album 6/Copy of IMG_4874.jpg", "album 6/Copy of IMG_4875.jpg", "album 6/Copy of IMG_4877.jpg", "album 6/Copy of IMG_4878.jpg", "album 6/Copy of IMG_4879.jpg"] },
+    { name: "Album 7", images: ["album 7/Copy of Copy of IMG_0946.jpg", "album 7/Copy of Copy of IMG_0957.jpg", "album 7/Copy of Copy of IMG_0969.jpg", "album 7/Copy of Copy of IMG_0972.jpg", "album 7/Copy of Copy of IMG_0982.jpg"] },
+    { name: "Album 8", images: ["album 8/Copy of Elier \u0026 Diana Riveron SW -1.jpg", "album 8/Copy of Elier \u0026 Diana Riveron SW -10.jpg", "album 8/Copy of Elier \u0026 Diana Riveron SW -11.jpg", "album 8/Copy of Elier \u0026 Diana Riveron SW -13.jpg", "album 8/Copy of Elier \u0026 Diana Riveron SW -3.jpg"] }
   ].map((p) => ({
     name: p.name,
-    desc: p.images.length ? "Customer Showcase" : "Photos Coming Soon",
+    desc: "Customer Showcase",
     ratio: "4/5",
-    cover: "anh/Shaker-White.jpg",
-    images: p.images.map((file) => encodeURI("anh/customers/Shaker-White-album/" + p.name + "/" + file))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

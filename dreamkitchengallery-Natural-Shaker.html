@@ -436,7 +436,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Explore our Natural Shaker project albums. New installation photography will be added soon.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest Natural Shaker installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -484,18 +484,14 @@ Output:
     { name: "Natural Shaker", desc: "Kitchen Cabinet", swatch: "#C7A77A", ratio: "4/5", image: "anh/Natural-Shaker.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/Natural Shaker NS/";
   const items = [
-    { name: "Album", images: [] },
-    { name: "Album (2)", images: [] },
-    { name: "Album (3)", images: [] },
-    { name: "Album (4)", images: [] },
-    { name: "Album (5)", images: [] }
+    { name: "Album 1", images: ["Copy of Brenden \u0026 Taylor NS-1.jpg", "Copy of Brenden \u0026 Taylor NS-10.jpg", "Copy of Brenden \u0026 Taylor NS-12.jpg", "Copy of Brenden \u0026 Taylor NS-14.jpg", "Copy of Brenden \u0026 Taylor NS-4.jpg", "Copy of Brenden \u0026 Taylor NS-5.jpg", "Copy of Brenden \u0026 Taylor NS-6.jpg", "Copy of Brenden \u0026 Taylor NS-8.jpg", "Copy of Brenden \u0026 Taylor NS-9.jpg"] }
   ].map((p) => ({
     name: p.name,
-    desc: p.images.length ? "Customer Showcase" : "Photos Coming Soon",
+    desc: "Customer Showcase",
     ratio: "4/5",
-    cover: "anh/Natural-Shaker.jpg",
-    images: p.images.map((file) => encodeURI("anh/customers/Natural-Shaker-album/" + p.name + "/" + file))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

@@ -436,7 +436,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Explore our Shaker Grey project albums. New installation photography will be added soon.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest Shaker Grey installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -484,18 +484,19 @@ Output:
     { name: "Shaker Grey", desc: "Kitchen Cabinet", swatch: "#858585", ratio: "4/5", image: "anh/Shaker-Grey.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/Shaker Grey SG/";
   const items = [
-    { name: "Album", images: [] },
-    { name: "Album (2)", images: [] },
-    { name: "Album (3)", images: [] },
-    { name: "Album (4)", images: [] },
-    { name: "Album (5)", images: [] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_0277.jpg", "album 1/Copy of IMG_0281.jpg", "album 1/Copy of IMG_0285.jpg", "album 1/Copy of IMG_0286.jpg", "album 1/Copy of IMG_0289.jpg", "album 1/Copy of IMG_0291.jpg", "album 1/Copy of IMG_0297.jpg", "album 1/Copy of IMG_0302.jpg"] },
+    { name: "Album 2", images: ["album 2/Copy of IMG_0063.jpg", "album 2/Copy of IMG_0070.jpg", "album 2/Copy of IMG_0091.jpg", "album 2/Copy of IMG_0093.jpg", "album 2/Copy of IMG_0103.jpg", "album 2/Copy of IMG_0108.jpg", "album 2/Copy of IMG_5295.jpg", "album 2/Copy of IMG_5296.jpg"] },
+    { name: "Album 3", images: ["album 3/Copy of Connie-Vieira-SG-1.jpg", "album 3/Copy of Connie-Vieira-SG-10.jpg", "album 3/Copy of Connie-Vieira-SG-11.jpg", "album 3/Copy of Connie-Vieira-SG-13.jpg", "album 3/Copy of Connie-Vieira-SG-15.jpg", "album 3/Copy of Connie-Vieira-SG-16.jpg", "album 3/Copy of Connie-Vieira-SG-21.jpg", "album 3/Copy of Connie-Vieira-SG-9.jpg"] },
+    { name: "Album 4", images: ["album 4/Copy of Emma_Ireland-1.JPG", "album 4/Copy of Emma_Ireland-10.JPG", "album 4/Copy of Emma_Ireland-14.JPG", "album 4/Copy of Emma_Ireland-15.JPG", "album 4/Copy of Emma_Ireland-6.JPG", "album 4/Copy of Emma_Ireland-7.JPG", "album 4/Copy of Emma_Ireland-9.JPG"] },
+    { name: "Album 5", images: ["album 5/Copy of Emma_Ireland-1.JPG", "album 5/Copy of Emma_Ireland-10.JPG", "album 5/Copy of Emma_Ireland-14.JPG", "album 5/Copy of Emma_Ireland-15.JPG", "album 5/Copy of Emma_Ireland-6.JPG", "album 5/Copy of Emma_Ireland-7.JPG", "album 5/Copy of Emma_Ireland-9.JPG"] },
+    { name: "Album 6", images: ["album 6/Copy of IMG_2867.JPG", "album 6/Copy of IMG_2876.JPG", "album 6/Copy of IMG_2890.JPG", "album 6/Copy of IMG_2892.JPG", "album 6/Copy of IMG_2911.JPG", "album 6/Copy of IMG_2932.JPG", "album 6/Copy of IMG_2934.JPG", "album 6/Copy of IMG_2936.JPG"] }
   ].map((p) => ({
     name: p.name,
-    desc: p.images.length ? "Customer Showcase" : "Photos Coming Soon",
+    desc: "Customer Showcase",
     ratio: "4/5",
-    cover: "anh/Shaker-Grey.jpg",
-    images: p.images.map((file) => encodeURI("anh/customers/Shaker-Grey-album/" + p.name + "/" + file))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

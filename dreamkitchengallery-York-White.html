@@ -436,7 +436,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Explore our York White project albums. New installation photography will be added soon.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest York White installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -484,18 +484,22 @@ Output:
     { name: "York White", desc: "Kitchen Cabinet", swatch: "#F4F1EA", ratio: "4/5", image: "anh/York-White.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/York White YK/";
   const items = [
-    { name: "Album", images: [] },
-    { name: "Album (2)", images: [] },
-    { name: "Album (3)", images: [] },
-    { name: "Album (4)", images: [] },
-    { name: "Album (5)", images: [] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_3487.jpg", "album 1/Copy of IMG_3490.jpg", "album 1/Copy of IMG_3506.jpg", "album 1/Copy of IMG_4298.jpg"] },
+    { name: "Album 2", images: ["album 2/Copy of IMG_0454.jpg", "album 2/Copy of IMG_0462.jpg", "album 2/Copy of IMG_0471.jpg", "album 2/Copy of IMG_0483.jpg"] },
+    { name: "Album 3", images: ["album 3/Copy of IMG_2012.jpg", "album 3/Copy of IMG_2014.jpg", "album 3/Copy of IMG_2024.jpg", "album 3/Copy of IMG_2033.jpg", "album 3/Copy of IMG_2035.JPG"] },
+    { name: "Album 4", images: ["album 4/Copy of IMG_7421.jpg", "album 4/Copy of IMG_7428.jpg", "album 4/Copy of IMG_7430.jpg", "album 4/Copy of IMG_7433.jpg"] },
+    { name: "Album 5", images: ["album 5/Copy of Daniel Ruffolo.jpg", "album 5/Copy of Daniel Ruffolo-11.jpg", "album 5/Copy of Daniel Ruffolo-14.jpg", "album 5/Copy of Daniel Ruffolo-18.jpg", "album 5/Copy of Daniel Ruffolo-7.jpg", "album 5/Copy of Daniel Ruffolo-9.jpg"] },
+    { name: "Album 6", images: ["album 6/Copy of Daniel Ruffolo.jpg", "album 6/Copy of Daniel Ruffolo-11.jpg", "album 6/Copy of Daniel Ruffolo-14.jpg", "album 6/Copy of Daniel Ruffolo-18.jpg", "album 6/Copy of Daniel Ruffolo-7.jpg", "album 6/Copy of Daniel Ruffolo-9.jpg"] },
+    { name: "Album 7", images: ["album 7/Copy of IMG_6726.jpg", "album 7/Copy of IMG_6731.jpg", "album 7/Copy of IMG_6733.jpg", "album 7/Copy of IMG_6738.jpg", "album 7/Copy of IMG_6748.jpg", "album 7/Copy of IMG_6753.jpg", "album 7/Copy of IMG_6754.jpg"] },
+    { name: "Album 8", images: ["album 8/Copy of IMG_5182.jpg", "album 8/Copy of IMG_5183.jpg", "album 8/Copy of IMG_5188.jpg", "album 8/Copy of IMG_8951.jpg", "album 8/Copy of IMG_8954.jpg", "album 8/Copy of IMG_8956.jpg", "album 8/Copy of IMG_8959.jpg", "album 8/Copy of IMG_8960.jpg", "album 8/Copy of IMG_8972.jpg"] },
+    { name: "Album 9", images: ["album 9/Copy of Sharon-Fred-Melrose-1.jpg", "album 9/Copy of Sharon-Fred-Melrose-10.jpg", "album 9/Copy of Sharon-Fred-Melrose-14.jpg", "album 9/Copy of Sharon-Fred-Melrose-2.jpg", "album 9/Copy of Sharon-Fred-Melrose-20.jpg", "album 9/Copy of Sharon-Fred-Melrose-9.jpg"] }
   ].map((p) => ({
     name: p.name,
-    desc: p.images.length ? "Customer Showcase" : "Photos Coming Soon",
+    desc: "Customer Showcase",
     ratio: "4/5",
-    cover: "anh/York-White.jpg",
-    images: p.images.map((file) => encodeURI("anh/customers/York-While-album/" + p.name + "/" + file))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

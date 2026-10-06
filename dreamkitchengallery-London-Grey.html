@@ -434,7 +434,7 @@ Output:
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Real kitchens, real customers &mdash; every album below is a completed London Grey project from our showroom archive.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest London Grey installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -482,17 +482,19 @@ Output:
     { name: "London Grey", desc: "Kitchen Cabinet", swatch: "#6B6B6D", ratio: "4/5", image: "anh/London-Grey.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/London Grey LG/";
   const items = [
-    { name: "Album", images: ["Copy of IMG_7404.jpg", "Copy of IMG_7407.jpg", "Copy of IMG_7432 2.jpg", "Copy of IMG_7451.jpg", "Copy of IMG_7462.jpg", "Copy of IMG_7473.jpg", "Copy of IMG_7477.jpg", "Copy of IMG_7494.jpg", "Copy of IMG_7497.jpg", "Copy of IMG_7499.jpg", "Copy of IMG_7503.jpg"] },
-    { name: "Album (2)", images: ["IMG_0402.jpg", "IMG_0403.jpg", "IMG_0405.jpg", "IMG_0406.jpg", "IMG_0410.jpg", "IMG_0416.jpg", "IMG_0419.jpg", "IMG_0427.jpg", "IMG_0428.jpg", "IMG_0429.jpg", "IMG_0440.jpg"] },
-    { name: "Album (3)", images: ["IMG_2629.jpg", "IMG_2632.jpg", "IMG_2633.jpg", "IMG_2636.jpg", "IMG_2637.jpg", "IMG_2638.jpg", "IMG_2640.jpg", "IMG_2641.jpg"] },
-    { name: "Album (4)", images: ["IMG_3835.jpg", "IMG_3837.jpg", "IMG_7956.jpg", "IMG_7961.jpg", "IMG_7964.jpg", "IMG_7983.jpg", "IMG_7995.jpg"] },
-    { name: "Album (5)", images: ["20230114_151513.jpg", "20230114_151546.jpg", "20230114_151854.jpg"] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_3837.jpg", "album 1/Copy of IMG_7956.jpg", "album 1/Copy of IMG_7964.jpg", "album 1/Copy of IMG_7983.jpg", "album 1/Copy of IMG_7995.jpg"] },
+    { name: "Album 2", images: ["album 2/Copy of 20230114_151513.jpg", "album 2/Copy of 20230114_151546.jpg", "album 2/Copy of 20230114_151854.jpg"] },
+    { name: "Album 3", images: ["album 3/Copy of IMG_5946.jpg", "album 3/Copy of IMG_5948.jpg", "album 3/Copy of IMG_5950.jpg", "album 3/Copy of IMG_5951.jpg", "album 3/Copy of IMG_5958.jpg", "album 3/Copy of IMG_5959.jpg"] },
+    { name: "Album 4", images: ["album 4/Copy of IMG_0622.jpg", "album 4/Copy of IMG_0633.jpg", "album 4/Copy of IMG_0643.jpg"] },
+    { name: "Album 5", images: ["album 5/Copy of IMG_2474.jpg", "album 5/Copy of IMG_2481.jpg", "album 5/Copy of IMG_2485.jpg", "album 5/Copy of IMG_2491.jpg"] },
+    { name: "Album 6", images: ["album 6/Copy of IMG_3257.jpg", "album 6/Copy of IMG_3258.jpg", "album 6/Copy of IMG_3259.jpg", "album 6/Copy of IMG_3262.jpg", "album 6/Copy of IMG_3265.jpg"] }
   ].map((p) => ({
     name: p.name,
     desc: "Customer Showcase",
     ratio: "4/5",
-    images: p.images.map((file) => encodeURI(`anh/customers/London-Grey-album/${p.name.toLowerCase()}/${file}`))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

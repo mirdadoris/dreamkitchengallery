@@ -431,7 +431,7 @@
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Real kitchens, real customers — every album below is a completed Shaker Charcoal project from our showroom archive.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest Shaker Charcoal installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -479,17 +479,18 @@
     { name: "Shaker Charcoal", desc: "Kitchen Cabinet", swatch: "#2A2926", ratio: "4/5", image: "anh/Shaker-Charcoal.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/Shaker Charcoal SC/";
   const items = [
-    { name: "Album", images: ["IMG_7195.jpg", "IMG_7203.jpg", "IMG_7208-2.jpg", "IMG_7208.jpg"] },
-    { name: "Album (2)", images: ["IMG_2909.jpg", "IMG_2915.jpg", "IMG_2916.jpg", "IMG_2918.jpg", "IMG_2919-2.jpg"] },
-    { name: "Album (3)", images: ["IMG_8990.jpg", "IMG_8993.jpg", "IMG_8994.jpg", "IMG_8995.jpg", "IMG_8998.jpg", "IMG_9001.jpg", "IMG_9003.jpg", "IMG_9014.jpg"] },
-    { name: "Album (4)", images: ["Copy of IMG_7116.jpg", "Copy of IMG_7127.jpg", "Copy of IMG_7131.jpg", "Copy of IMG_7133.jpg", "Copy of IMG_7148.jpg", "Copy of IMG_7166.jpg"] },
-    { name: "Album (5)", images: ["IMG_0358_1.jpg", "IMG_0359.jpg", "IMG_0360.jpg", "IMG_0366.jpg", "IMG_0369.jpg", "IMG_0372.jpg", "IMG_0373.jpg", "IMG_0377.jpg"] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_2625.jpg", "album 1/Copy of IMG_2629.jpg", "album 1/Copy of IMG_2630.jpg", "album 1/Copy of IMG_2631.jpg", "album 1/Copy of IMG_2638.jpg", "album 1/Copy of IMG_4163.jpg", "album 1/Copy of IMG_4169.jpg", "album 1/Copy of IMG_4175.jpg", "album 1/Copy of IMG_4180.jpg", "album 1/Copy of IMG_8723.jpg", "album 1/Copy of IMG_8724.jpg", "album 1/Copy of IMG_8729.jpg", "album 1/Copy of IMG_8740.jpg", "album 1/Copy of IMG_8766.jpg", "album 1/Copy of IMG_8773.jpg"] },
+    { name: "Album 2", images: ["album 2/Copy of IMG_1590.jpg", "album 2/Copy of IMG_1604.jpg", "album 2/Copy of IMG_1610.jpg", "album 2/Copy of IMG_1614.jpg", "album 2/Copy of IMG_1619.jpg", "album 2/Copy of IMG_1625.jpg"] },
+    { name: "Album 3", images: ["album 3/Copy of Jodi-H-SC-17.jpg", "album 3/Copy of Jodi-H-SC-2.jpg", "album 3/Copy of Jodi-H-SC-40.jpg", "album 3/Copy of Jodi-H-SC-5.jpg"] },
+    { name: "Album 4", images: ["album 4/Copy of Julia-Patten-SC-10.jpg", "album 4/Copy of Julia-Patten-SC-5.jpg", "album 4/Copy of Julia-Patten-SC-8.jpg"] },
+    { name: "Album 5", images: ["album 5/Copy of Copy of IMG_8705.jpg", "album 5/Copy of Copy of IMG_8715.jpg", "album 5/Copy of Copy of IMG_8769.jpg", "album 5/Copy of Copy of IMG_8793.jpg"] }
   ].map((p) => ({
     name: p.name,
     desc: "Customer Showcase",
     ratio: "4/5",
-    images: p.images.map((file) => encodeURI(`anh/customers/shaker-charcoal-album/${p.name}/${file}`))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;

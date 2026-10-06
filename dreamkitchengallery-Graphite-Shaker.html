@@ -432,7 +432,7 @@
 <main class="gallery-wrap" id="gallery-section">
   <div class="gallery-head reveal">
     <h2>Recent Installations</h2>
-    <p>Explore our Graphite Shaker project albums. New installation photography will be added soon.</p>
+    <p>Real kitchens, real customers &mdash; explore our latest Graphite Shaker installations.</p>
   </div>
   <div class="gallery" id="gallery"></div>
 </main>
@@ -480,18 +480,14 @@
     { name: "Graphite Shaker", desc: "Kitchen Cabinet", swatch: "#4A4D50", ratio: "4/5", image: "anh/Graphite-Shaker.jpg" }
   ];
 
+  const albumBase = "anh/customers-web/Graphite Shaker GS/";
   const items = [
-    { name: "Album", images: [] },
-    { name: "Album (2)", images: [] },
-    { name: "Album (3)", images: [] },
-    { name: "Album (4)", images: [] },
-    { name: "Album (5)", images: [] }
+    { name: "Album 1", images: ["album 1/Copy of IMG_5187.jpg", "album 1/Copy of IMG_5189.jpg", "album 1/Copy of IMG_5190.jpg", "album 1/Copy of IMG_5191.jpg", "album 1/Copy of IMG_5193.jpg", "album 1/Copy of IMG_5194.jpg", "album 1/Copy of IMG_5195.jpg", "album 1/Copy of IMG_5196.jpg", "album 1/Copy of IMG_5199.jpg", "album 1/Copy of IMG_5203.jpg", "album 1/Copy of IMG_5216.jpg"] }
   ].map((p) => ({
     name: p.name,
-    desc: p.images.length ? "Customer Showcase" : "Photos Coming Soon",
+    desc: "Customer Showcase",
     ratio: "4/5",
-    cover: "anh/Graphite-Shaker.jpg",
-    images: p.images.map((file) => encodeURI("anh/customers/Graphite-Shaker-album/" + p.name + "/" + file))
+    images: p.images.map((file) => encodeURI(albumBase + file))
   }));
 
   const products = items;
